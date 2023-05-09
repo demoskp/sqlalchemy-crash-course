@@ -10,7 +10,7 @@ user_data = [
     {
         "first_name": "John",
         "last_name": "Doe",
-        "email": "johndoe@example.com",
+        "email": "johndoe@gmail.com",
         "addresses": [
             {
                 "road_name": "123 Main St",
@@ -31,7 +31,7 @@ user_data = [
     {
         "first_name": "Jane",
         "last_name": "Smith",
-        "email": "janesmith@example.com",
+        "email": "janesmith@gmail.com",
         "addresses": [
             {
                 "road_name": "789 Oak St",
@@ -52,7 +52,7 @@ user_data = [
     {
         "first_name": "Bob",
         "last_name": "Johnson",
-        "email": "bobjohnson@example.com",
+        "email": "bobjohnson@gmail.com",
         "addresses": [
             {
                 "road_name": "555 Cedar St",

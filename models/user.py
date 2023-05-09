@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Integer, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import Relationship
 
 from models.base import TimeStampedModel, Model
@@ -25,7 +25,7 @@ class Preference(TimeStampedModel):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     language = Column(String(80), nullable=False)
-    currency = Column(String(80), nullable=False)
+    currency = Column(String(3), nullable=False)
     user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True, unique=True)
 
     user = Relationship("User", back_populates="preference")
@@ -53,15 +53,6 @@ class Role(Model):
     name = Column(String(80), nullable=False)
     slug = Column(String(80), nullable=False, unique=True)
 
-    users = Relationship("User", secondary="user_roles", back_populates="roles")
-
     def __repr__(self):
         return f"{self.__class__.__name__}, name: {self.name}"
-
-
-class UserRole(TimeStampedModel):
-    __tablename__ = "user_roles"
-
-    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), primary_key=True)
-    role_id = Column(Integer, ForeignKey("roles.id", ondelete="CASCADE"), primary_key=True)
 

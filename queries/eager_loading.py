@@ -6,11 +6,9 @@ users = (
     User.query
     .join(User.addresses)
     .filter(Address.city == "London")
-    .options(contains_eager(User.addresses))
+    .options(joinedload(User.addresses))
     .all()
-
 )
 
 for user in users:
     print(user.addresses)
-

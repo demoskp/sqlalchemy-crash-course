@@ -1,22 +1,23 @@
 from main import session
-from models.user import User, Preference
+from models.user import Preference, User
 
 user_preference = (
     Preference.query
     .join(Preference.user)
-    .filter(User.email == "johndoe@example.com")
+    .filter(User.email == "johndoe@gmail.com")
     .first()
 )
 
 user_preference.currency = "GBP"
 session.commit()
 
-print(user_preference.currency)
 
-User.query \
+user = User.query \
     .filter(User.first_name == "John") \
     .filter(User.last_name == "Doe") \
-    .update({"email": "johndoe@gmail.com"})
+    .update({"email": "johndoe@hotmail.com"})
 
 
-print(User.query.first().email)
+session.commit()
+
+# print(user.email)

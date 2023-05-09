@@ -1,16 +1,20 @@
 from main import session
 from models.user import User, Preference
 
-user = User(first_name="John", last_name="Smith", email="jsmith@gmail.com")
+user = User(
+    first_name="John",
+    last_name="Smith",
+    email="jsmith@gmail.com",
+)
 
 session.add(user)
 
-preference = Preference(language="English", currency="GBP")
+raise Exception("Something went wrong")
 
-something = user.first_name == "John"
-
-if something:
-    raise Exception("Something went wrong")
+preference = Preference(
+    language="English",
+    currency="GBP",
+)
 
 preference.user = user
 session.commit()
